@@ -1,8 +1,12 @@
 package com.lettin.apimanager.controller;
 
+import org.apache.shiro.authz.annotation.RequiresGuest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @ClassName HelloController
@@ -18,5 +22,12 @@ public class HelloController {
     @ResponseBody
     public String hello(){
         return "hello ";
+    }
+
+
+    @RequestMapping("/jsp")
+    public String home(Model model) {
+        model.addAttribute("name","hello world");
+        return "home";
     }
 }
